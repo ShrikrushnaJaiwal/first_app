@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pragprog Books Online Store</title>
+  <title> Books Online Store </title>
 <!-- START:stylesheet -->
   <%= stylesheet_link_tag "scaffold" %>
   <%= stylesheet_link_tag "custom", :media => "all" %>
@@ -12,20 +12,18 @@
 <body id="store">
   <div id="banner">
     <%= image_tag("logo.png") %>
-    <%= @page_title || "Pragmatic Bookshelf" %>
+    <%= @page_title || "Shri Books Depot"%>
   </div>
   <div id="columns">
     <div id="side">
       <!-- START_HIGHLIGHT -->
       <div id="cart">
+        <% if @cart %> 
         <%= render @cart %>
+   	<% end %>
       </div>
       <!-- END_HIGHLIGHT -->
-
-      <a href="http://www....">Home</a><br />
-      <a href="http://www..../faq">Questions</a><br />
-      <a href="http://www..../news">News</a><br />
-      <a href="http://www..../contact">Contact</a><br />
+      <li><%=link_to 'HOME', "store/index" %></li>
     </div>
     <div id="main">
       <%= yield %>
