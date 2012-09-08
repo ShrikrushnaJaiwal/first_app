@@ -80,7 +80,7 @@ Shopping::Application.routes.draw do
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
   root :to => 'store#index', :as => 'store'
-
+  root :to => 'store#index'
 
   # See how all your routes lay out with "rake routes"
 
