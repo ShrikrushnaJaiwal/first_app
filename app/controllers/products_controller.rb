@@ -2,12 +2,10 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @products }
-    end
-  end
+  
+     @products = Product.search(params[:search])
+     
+  	  end
 
   # GET /products/1
   # GET /products/1.json
@@ -79,4 +77,10 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+ 
+
+
 end
+
+

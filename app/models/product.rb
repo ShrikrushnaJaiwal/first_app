@@ -1,6 +1,5 @@
 class Product < ActiveRecord::Base
  default_scope :order => 'title'
-
  attr_accessible :title, :description, :image_url, :price
  
   has_many :line_items
@@ -14,8 +13,18 @@ class Product < ActiveRecord::Base
     :with    => %r{\.(gif|jpg|png)$}i,
     :message => 'must be a URL for GIF, JPG or PNG image.'
   }
+  
    validates :title, :length => {:minimum => 10}
-  private
+   
+def self.search(search)
+  if search
+    find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
+  else
+    find(:all)
+  end
+end
+
+private
 
     # ensure that there are no line items referencing this product
     def ensure_not_referenced_by_any_line_item

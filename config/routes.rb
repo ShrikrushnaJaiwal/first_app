@@ -26,8 +26,9 @@ Shopping::Application.routes.draw do
   #resources :store
 
   get "store/index"
-
-  resources :products
+  get "products/search"
+  post "products/search"
+  resources :products 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
