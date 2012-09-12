@@ -11,7 +11,11 @@
 <span class="price"><%= number_to_currency(product.price) %></span>
 <%= button_to 'Add to Cart', line_items_path(:product_id => product),
    :remote => true %>
-
+<%= button_to 'Give Ratings and Reviews',rates_new_path(:product_id => product),
+   :remote => true %>
+<div class="rating_review" >
+<span class="ratings"><%=  %> </span>
+</div>
 </div>
 </div>
 <% end %>

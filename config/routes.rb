@@ -1,9 +1,13 @@
 Shopping::Application.routes.draw do
-  get "admin/index"
+  resources :rates
 
+  resources :reviews
+
+  get "admin/index"
+#  get "ratings/new"
  # get "sessions/new"
 
- 
+  resources :ratings
 # get "sessions/create"
 
  # get "sessions/destroy"
@@ -24,7 +28,8 @@ Shopping::Application.routes.draw do
   resources :carts
   
   #resources :store
-
+  get "rates/new"
+  post "rates/new"
   get "store/index"
   get "products/search"
   post "products/search"
